@@ -19,8 +19,8 @@ jobs:
 
       - name: Authenticate Node.js project with BoM
         #--> Run the GitHub action
-        # uses: codenotary/vcn-authenticate-bom-nodejs-github-action@v1.0.0
-        uses: codenotary/vcn-authenticate-bom-nodejs-github-action@main
+        uses: codenotary/vcn-authenticate-bom-nodejs-github-action@v1.0.0
+        # uses: codenotary/vcn-authenticate-bom-nodejs-github-action@main
         with:
           asset: git://.
           cnil_host: ${{ secrets.CNIL_HOST }}
