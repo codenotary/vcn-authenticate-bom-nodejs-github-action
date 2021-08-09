@@ -1,7 +1,7 @@
 name: 'VCN authenticate BoM for Node.js projects'
 description: 'Uses the vcn tool from CodeNotary.com to authenticate the bill of materials (BoM) for Node.js projects.'
 branding:
-  icon: 'lock'
+  icon: 'check-square'
   color: 'green'
 inputs:
   asset:
