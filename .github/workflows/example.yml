@@ -27,7 +27,10 @@ jobs:
           cnil_grpc_port: ${{ secrets.CNIL_GRPC_PORT }}
           cnil_api_key: ${{ secrets.CNIL_API_KEY }}
           # the signer ID is always required (even if it's the same as the one of the CNIL API key)
-          signer_id: ${{ github.event.sender.login }}@github
+          # - hardcode it here
+          signer_id: OggVCNAPIKey1
+          # - or pick it from the event:
+          # signer_id: ${{ github.event.sender.login }}@github
         #<--
         #--> or run the vcn Docker image directly (all vcn flags are available and passed through)
         # uses: docker://codenotary/vcn:bom-nodejs
