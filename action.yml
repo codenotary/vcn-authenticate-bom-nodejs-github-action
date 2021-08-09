@@ -1,0 +1,37 @@
+name: 'VCN authenticate BoM for Node.js projects'
+description: 'Uses the vcn tool from CodeNotary.com to authenticate the bill of materials (BoM) for Node.js projects.'
+branding:
+  icon: 'lock'
+  color: 'green'
+inputs:
+  asset:
+    description: 'Asset to authenticate.'
+    required: true
+  cnil_host:
+    description: 'CodeNotary Immutable Ledger (CNIL) host.'
+    required: true
+  cnil_grpc_port:
+    description: 'CNIL gRPC port.'
+    required: false
+    default: 443
+  cnil_api_key:
+    description: 'CNIL API key.'
+    required: true
+  signer_id:
+    description: 'CNIL signer ID.'
+    required: true
+runs:
+  using: 'docker'
+  image: 'docker://codenotary/vcn:bom-nodejs'
+  args:
+    - a
+    - ${{ inputs.asset }}
+    - --lc-host
+    - ${{ inputs.cnil_host }}
+    - --lc-port
+    - ${{ inputs.cnil_grpc_port }}
+    - --lc-api-key
+    - ${{ inputs.cnil_api_key }}
+    - --signerID
+    - ${{ inputs.signer_id }}
+    - --bom
